@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-headline: "Hanken Grotesk", sans-serif;
+
+  --color-surface-dim: #0b1326;
+  --color-surface-bright: #31394d;
+  --color-surface-container-lowest: #060e20;
+  --color-surface-container-low: #131b2e;
+  --color-surface-container: #171f33;
+  --color-surface-container-high: #222a3d;
+  --color-surface-container-highest: #2d3449;
+  --color-on-surface: #dae2fd;
+  --color-on-surface-variant: #c1c7ce;
+  --color-primary: #9fccef;
+  --color-on-primary: #00344e;
+  --color-secondary: #8fd8ff;
+  --color-tertiary: #6cd3fc;
+  --color-background-custom: #0b1326;
+}
+
+@layer base {
+  body {
+    background-color: #0b1326;
+    color: #dae2fd;
+    font-family: var(--font-sans);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #060e20;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #171f33;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9fccef;
+  }
+}
+
+/* Glass panel background */
+.glass-panel {
+  background: rgba(19, 27, 46, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(159, 204, 239, 0.25);
+  box-shadow: 0 8px 30px rgba(159, 204, 239, 0.05);
+}
+
+/* Custom typewriter cursor blinking animation */
+@keyframes blink-cursor {
+  from, to { border-color: transparent }
+  50% { border-color: #9fccef; }
+}
+
+.typewriter-cursor {
+  border-right: 0.15em solid #9fccef;
+  animation: blink-cursor 0.75s step-end infinite;
+}
